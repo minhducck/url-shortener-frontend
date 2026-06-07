@@ -8,4 +8,7 @@ export const client = new Axios({
   headers: {
     'Content-Type': 'application/json',
   },
+  transformRequest: data => JSON.stringify(data),
+  transformResponse: data => JSON.parse(data),
+  validateStatus: status => status >= 200 && status < 300
 });
